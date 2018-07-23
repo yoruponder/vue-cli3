@@ -7,11 +7,14 @@
 
 <script>
 import HelloWorld from '_COMP_/HelloWorld.vue'
-
+// console.log($)
 export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  mounted: function () {
+    console.log($('img'))
   }
 }
 </script>

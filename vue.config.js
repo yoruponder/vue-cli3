@@ -1,5 +1,6 @@
 // vue.config.js
 const path = require('path');
+const webpack = require('webpack');
 function resolve (dir) {
     return path.join(__dirname, dir)
 }
@@ -19,6 +20,13 @@ module.exports = {
       .set('_CFG_', resolve('src/config'))
       .set('_VX_', resolve('src/vuex'))
       .set('_PLGN_', resolve('src/plugin'));
+
+    config.plugin('provide').use(webpack.ProvidePlugin,[{
+      $: 'jquery',
+      jquery: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }]);
   },
   pages: {
     index: {
